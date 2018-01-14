@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>翻译助手</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </head>
+  <body style="background:#2b2b2b">
+    <div class="container">
+            <h1 style="margin-bottom:20px; margin-top:20px; color:white">Google论文翻译神器</h1>
+            <form action="/" method="post">
+            <label for="inputs" style="color:white"><strong>论文文本</strong></label>
+            <textarea class=" form-control" id="inputs" rows="7" name="en_sentence">{% if en_sentence %}
+                    {{ en_sentence }}
+                {% end %}</textarea><br/>
+            <div class="center" style=" width: auto;display: table;margin-left: auto;margin-right: auto;">
+                    <input type="submit"class="btn btn-outline-secondary center" role='button' style="color:white" value="快速翻译">
+            </div>
+            </form>
+            <br/>
+            <label style="color:white"><strong>翻译结果</strong></label>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" style="color:white">英文原文</th>
+                  <th scope="col" style="color:white">中文翻译</th>
+                </tr>
+              </thead>
+              <tbody style="color:white">
+                {% for row in ch_sentence %}
+                <tr>
+                  <td>{{ row[1]}}</td>
+                  <td>{{ row[0]}}</td>
+                </tr>
+              {%  end %}
+              </tbody>
+            </table>
+    </div>
+
+    <footer class="footer" >
+            <div class="container">
+              <span class="text-muted">&copy;2017 Powered by geb@dataflow.ai </span>
+            </div>
+    </footer>
+
+    <script>
+
+    </script>
+
+  </body>
+</html>
